@@ -88,6 +88,7 @@ class Maze:
 
         # track the resolution for this maze
         self.resolution = 1
+        log.debug('Maze: %s', self.__dict__)
 
     # extend a state to a higher resolution maze
     # @state: state in lower resoultion maze
