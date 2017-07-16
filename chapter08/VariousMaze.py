@@ -108,6 +108,7 @@ class Maze:
     # extend a state into higher resolution
     # one state in original maze will become @factor^2 states in @return new maze
     def extendMaze(self, factor):
+        log = logging.getLogger('chapter08.Maze.extendMaze')
         newMaze = Maze()
         newMaze.WORLD_WIDTH = self.WORLD_WIDTH * factor
         newMaze.WORLD_HEIGHT = self.WORLD_HEIGHT * factor
@@ -118,6 +119,7 @@ class Maze:
             newMaze.obstacles.extend(self.extendState(state, factor))
         newMaze.stateActionValues = np.zeros((newMaze.WORLD_HEIGHT, newMaze.WORLD_WIDTH, len(newMaze.actions)))
         newMaze.resolution = factor
+        log.debug("New (extended) maze: %s", newMaze.__dict__)
         return newMaze
 
     # take @action in @state
