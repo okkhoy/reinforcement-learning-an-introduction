@@ -93,11 +93,15 @@ class Maze:
     # @state: state in lower resoultion maze
     # @factor: extension factor, one state will become factor^2 states after extension
     def extendState(self, state, factor):
+        log = logging.getLogger('chapter08.Maze.extendState')
         newState = [state[0] * factor, state[1] * factor]
         newStates = []
         for i in range(0, factor):
             for j in range(0, factor):
                 newStates.append([newState[0] + i, newState[1] + j])
+        log.debug('State: %s', state)
+        log.debug('Factor: %f', factor)
+        log.debug('NewStates: %s', newStates)
         return newStates
 
     # extend a state into higher resolution
