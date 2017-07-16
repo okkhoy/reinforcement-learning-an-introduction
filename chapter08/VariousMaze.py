@@ -10,7 +10,9 @@ from __future__ import print_function
 import numpy as np
 import matplotlib.pyplot as plt
 import itertools
+import logging
 import heapq
+import time
 
 class PriorityQueue:
     def __init__(self):
@@ -48,6 +50,7 @@ class PriorityQueue:
 class Maze:
 
     def __init__(self):
+        log = logging.getLogger('chapter08.Maze')
         # maze width
         self.WORLD_WIDTH = 9
 
