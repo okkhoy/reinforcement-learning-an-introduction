@@ -154,6 +154,7 @@ class Maze:
 class DynaParams:
 
     def __init__(self):
+        log = logging.getLogger('chapter08.DynaParams')
         # discount
         self.gamma = 0.95
 
@@ -173,10 +174,12 @@ class DynaParams:
         self.runs = 10
 
         # algorithm names
-        self.methods = ['Dyna-Q', 'Dyna-Q+']
+        self.methods = ['Dyna-Q+']        #self.methods = ['Dyna-Q', 'Dyna-Q+']
 
         # threshold for priority queue
         self.theta = 0
+
+        log.debug('DynaParams: %s', self.__dict__)
 
 
 # choose an action based on epsilon-greedy algorithm
