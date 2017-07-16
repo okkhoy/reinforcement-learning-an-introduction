@@ -1,0 +1,6 @@
+{
+	"logfilename" : "log",
+	"loglevel" : "DEBUG",
+	"logfolder" : "log",
+	"enabled" : true
+}
