@@ -125,14 +125,21 @@ class Maze:
     # take @action in @state
     # @return: [new state, reward]
     def takeAction(self, state, action):
+        log = logging.getLogger('chapter08.Maze.takeAction')
         x, y = state
+        log.debug("State: %d, %d", x, y)
+        log.debug("Action: %d", action)
         if action == self.ACTION_UP:
+            log.debug("Move up")
             x = max(x - 1, 0)
         elif action == self.ACTION_DOWN:
+            log.debug("Move down")
             x = min(x + 1, self.WORLD_HEIGHT - 1)
         elif action == self.ACTION_LEFT:
+            log.debug("Move left")
             y = max(y - 1, 0)
         elif action == self.ACTION_RIGHT:
+            log.debug("Move right")
             y = min(y + 1, self.WORLD_WIDTH - 1)
         if [x, y] in self.obstacles:
             x, y = state
@@ -140,6 +147,7 @@ class Maze:
             reward = 1.0
         else:
             reward = 0.0
+        log.debug("After action: State: %d, %d;  reward: %f", x, y, reward)
         return [x, y], reward
 
 # a wrapper class for parameters of dyna algorithms
